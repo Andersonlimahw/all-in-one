@@ -1,0 +1,33 @@
+.btn {
+    
+    padding: 0 0.9em !important;
+    border: none;
+    outline:none;
+    transition:all 0.5s;
+    cursor: pointer;
+    color:#fff;
+}
+
+.btn:hover {
+    opacity: 0.9;
+    border:none;
+}
+
+.btn-cancelar {
+    background: red;
+}
+.btn-submit {
+    background-color: #35bfaf !important;
+    color:#fff !important;
+    width: 100%;
+}
+
+
+.modal-form .btn-cadastrar {
+    background:#dadada;
+    color:#333;
+}
+
+.btn-recuperar-senha {
+    color:#333;
+}

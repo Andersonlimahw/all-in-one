@@ -1,0 +1,23 @@
+.radios input{
+    background:#fff;
+    transition: all 0.5s;
+    font-size: 14px;
+    color:#333;
+    padding:6px 12px;
+    border-bottom: 2px solid #dadada;
+    border-top:none;
+    border-left:none;
+    border-right:none;
+    transition:all 2s;
+    width:22px;
+    height: auto;
+    display: inline-flex;
+}
+input.radio:focus, input.radio:hover{
+    outline:none;
+    border-top:none;
+    border-left:none;
+    border-right:none;
+    border-bottom:2px solid #35bfaf;
+    font-size: 15px;
+}
