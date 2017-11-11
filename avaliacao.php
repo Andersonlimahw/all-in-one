@@ -35,6 +35,10 @@
             <h2 class="title">
                 CURSO <?php echo $_SESSION['nomeCurso'] ?>
             </h2>
+            <div class="col s12">
+                <p> * você pode deixar questões em branco ,porém recomendamos que preencha todas</p>
+            </div>
+            
     </div>
    <div class="row">
 		<form method="POST" action="php/salvarAvaliacao.php">
@@ -80,6 +84,7 @@
                         // $respostas = $jsonObjResposta ->respostas;
 
                             foreach($questoes as $q){
+                              
                                 echo '<div class="col s12">
                                     <div class="card questao-avaliacao">
                                         <span class="card-title questao-title">
@@ -93,20 +98,21 @@
                                                 <br>
                                             </div>
                                             <div class="input-field questao-resposta">
-                                                <select name="resposta'.$q ->id.'" required>
-                                                <option value=""  selected>--SELECIONE</option>
-                                                <option value="SIM"  selected>SIM</option>
-                                                <option value="NAO"  selected>NÃO</option>
+                                                <select id="resposta'.$q ->id.'"  name="resposta'.$q ->id.'">
+                                                <option value="" >DEIXAR EM BRANCO</option>
+                                                <option value="SIM">SIM</option>
+                                                <option value="NAO" selected>NÃO</option>
                                                 </select>
                                             <label>resposta</label>
+                                            
                                             </div>
                                         </div>
                                     </div>
                                     </div>';
                                     // armazena as resposta selecionadas na session, porém está sendo utilizado $_POST   apenas o salvarAvaliacao;
                                     
-                                    //$q ->resposta = $_SESSION['respostaValor'.$q ->id];                                    
-                            
+                                    //$q ->resposta = $_SESSION['respostaValor'.$q ->id];    
+
                         }// fim for each provas
                         
                       
@@ -116,7 +122,7 @@
                 echo "Erro  ".mysqli_errno($con);
               } // fim idLogin
               ?>
-               
+          
                     
             <input type="submit" value="salvar" name="salvarAvaliacao" class="btn btn-submit">
 
@@ -132,6 +138,7 @@
     <script src="assets/js/jquery-3.2.1.js" type="text/javascript"></script>
     <script src="assets/js/materialize.js" type="text/javascript"></script>
     <script src="assets/js/main.js" type="text/javascript"></script>
+
     
 </body>
 </html>

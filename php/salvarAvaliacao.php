@@ -83,7 +83,7 @@
                      ';
             }
 
-            echo '<div class="gabarito-nota-final">Nota final: '.$nota.'</div>';
+            echo '<div class="gabarito-nota-final">Nota final: '.$nota.' de 10</div>';
             
             
             $query = "SELECT * FROM TENTATIVAS where id_curso='$idCurso' and id_aluno='$idAluno' and id_prova='$idProva' "; /// verifica se já tentou se sim atualiza senão insere
