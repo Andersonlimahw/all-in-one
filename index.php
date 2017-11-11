@@ -121,7 +121,7 @@
                             echo mysqli_num_rows($result) . " tentativas "
                             . "realizadas nos ultimos 30s";
                             //header ('Location: index.php');
-                            echo "<script>alert('Erro, tente novamente !') </script>";
+                            echo "<script>alert('usúario ou senha inválidos, tente novamente !') </script>";
                             echo "Erro  ".mysqli_errno($con);
                         }
                     } else {

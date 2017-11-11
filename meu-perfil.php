@@ -215,45 +215,66 @@
               
 
               <div class="card-content">
+              <!-- pegar dados para  popular no form de edição -->
+              <?php
+                  require ('bd/connect.php');
 
-                <!-- <form method="POST"> -->
-                  <!-- <input type="hidden" placeholder="nome" name="email" value="<?php $email;?>"> <br> -->
-                  <label for="nome">Nome</label>
-                  <input type="text" placeholder="nome" name="nome" value="" required> <br>
-                  <!-- aplicar mascará cpf -->
-                  <label for="cpf">CPF</label>
-                  <input type="text" placeholder="cpf" name="cpf" value="" required> <br>
-                  <label for="">Cidade Natal</label>
-                  <input type="text" placeholder="cidade natal" name="cidadeNatal" value="" required> <br>
-
-                  <br>
-                  <label for="">Data de nascimento</label>
-                  <input type="date" placeholder="data de nacimento" name="dataNascimento" value="" required> <br>
-                  <br>
-
-                  <div class="input-field col s12 m12">
-                    <select name="sexo" required>
-                      <option value=""  selected>Selecione</option>
-                      <option value="masculino">masculino</option>
-                      <option value="feminino">feminino</option>
-                      <option value="outros">outros</option>
-                      <option value="indefinido">indefinido</option>
-                      <option value="gosto">gosto</option>
-                    </select>
-                    <label>Sexo</label>
-                  </div>
-
+                  if (isset($_SESSION['login'])) {
+                      $email = $_SESSION['login'];
+                      
+                      $query = "SELECT * FROM ALUNOS where email='$email'";
+                      $result = mysqli_query($con, $query);
+                      
+                      if (mysqli_num_rows($result) == 0) {
+                          echo "<h2> Você ainda não preencheu seu perfil</h2>";
+                      } else if (mysqli_query($con, $query))  {
+                        // listar dados 
+                        while ($row = $result->fetch_assoc()) {
                
+                          echo "<label for='nome'>Nome</label> 
+                                <input type='text' name='nome' value=".$row['nome']." required> <br>
 
-                  <br>
-                  <br>
-                  <br>
-                  <br>
-                  <!-- <input type="submit" class="btn" name="atualizarPerfil"> -->
-                
-                  
+                                <label for='cpf'>CPF</label>
+                                <input type='text' placeholder='cpf' name='cpf' value=".$row['cpf']." required> <br>
 
-                <!-- </form> -->
+                                <label for='cidadeNatal'>Cidade Natal</label>
+                                <input type='text' placeholder='cidade natal' name='cidadeNatal' value=".$row['cidade_natal']." required> <br>
+              
+                                <br>
+                                <label for='dataNascimento'>Data de nascimento</label>
+                                <input type='date' placeholder='data de nacimento' name='dataNascimento' value=".$row['data_nascimento']." required> <br>
+                                <br>
+              
+                                <div class='input-field col s12 m12'>
+                                  <select name='sexo' required>
+                                    <option value=".$row['sex']."  selected> " .$row['sex']. "</option>
+                                    <option value='masculino'>masculino</option>
+                                    <option value='feminino'>feminino</option>
+                                    <option value='outros'>outros</option>
+                                    <option value='indefinido'>indefinido</option>
+                                    <option value='gosto'>gosto</option>
+                                  </select>
+                                  <label>Sexo</label>
+                                </div>
+              
+                             
+              
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                
+                                "; // fim echo dados  
+
+                        }
+
+
+                      } else {  
+                        echo "Erro  ".mysqli_errno($con);
+                      }
+                  }
+
+                ?>
 
               </div>
             </div>
@@ -265,9 +286,49 @@
               <br>
               
               <div class="card-content">
-                <!-- Inicio do formulario -->
-                <!-- <form method="get"> -->
-                  <label>Cep:
+              <?php
+                  require ('bd/connect.php');
+
+                  if (isset($_SESSION['login'])) {
+                      $email = $_SESSION['login'];
+                      
+                      $query = "SELECT * FROM ALUNOS where email='$email'";
+                      $result = mysqli_query($con, $query);
+                      
+                      if (mysqli_num_rows($result) == 0) {
+                          echo "<h2> Você ainda não preencheu seu perfil</h2>";
+                      } else if (mysqli_query($con, $query))  {
+                        // listar dados 
+                        while ($row = $result->fetch_assoc()) {
+               
+                          echo "  <label>Cep: (para atualizar o endereço preencha o cep)
+                                  <input name='cep' type='text' id='cep' value=".$row['cep']." size='10' maxlength='9'
+                                              onblur='pesquisacep(this.value);' required />
+                                  </label><br />
+
+                                  <label>Rua:
+                                        <input name='rua' type='text' id='rua' size='60'  required/></label><br />
+                                  <label>Bairro:
+                                        <input name='bairro' type='text' id='bairro' size='40'  required/></label><br /><br>
+                                  <label>Cidade:
+                                        <input name='cidade' type='text' id='cidade' size='40'  required /></label><br />
+                                  <label>Estado:
+                                        <input name='uf' type='text' id='uf' size='2' value=".$row['estado']." required /></label>
+                                  <input name='ibge' type='hidden' id='ibge' size='8'  required /></label><br />
+                                
+                                "; // fim echo dados  
+
+                        }
+
+
+                      } else {  
+                        echo "Erro  ".mysqli_errno($con);
+                      }
+                  }
+
+                ?>
+                
+                  <!-- <label>Cep:
                         <input name="cep" type="text" id="cep" value="" size="10" maxlength="9"
                               onblur="pesquisacep(this.value);" required />
                     </label><br />
@@ -279,9 +340,9 @@
                         <input name="cidade" type="text" id="cidade" size="40" required /></label><br />
                   <label>Estado:
                         <input name="uf" type="text" id="uf" size="2" required /></label>
-                  <input name="ibge" type="hidden" id="ibge" size="8" required /></label><br />
-                  <!-- <input type="submit" class="btn" name="atualizarEndereco" >       -->
-                <!-- </form> -->
+                  <input name="ibge" type="hidden" id="ibge" size="8" required /></label><br /> -->
+                  
+                
               </div>
             </div>
           </div>
@@ -310,7 +371,6 @@
                 $cpf = $_POST['cpf'];
 
                 $dataNascimento = $_POST['dataNascimento'];
-                //$estadoCivil = $_POST['estadoCivil']; //incluir db
                 $cidadeNatal = $_POST['cidadeNatal'];
                 
 
