@@ -120,6 +120,7 @@
                 } // fim if mysqli query
               } else {
                 echo "Erro  ".mysqli_errno($con);
+                header ('Location: index.php');
               } // fim idLogin
               ?>
           

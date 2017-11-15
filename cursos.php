@@ -72,7 +72,7 @@
                                   </div>
                       
                                   <div class="col s12 m7 l6 action-buttons">
-                                  <a class="waves-effect waves-light btn" href="php/escolherCurso.php?idCursoParam='.$row['id'].'&nomeCursoParam='.$row['nome'].'"><i class="material-icons left">send</i>iniciar</a>
+                                  <a class="waves-effect waves-light btn" href="php/escolherCurso.php?idCursoParam='.$row['id'].'&nomeCursoParam='.$row['nome'].'"><i class="fa fa-paper-plane left"></i>iniciar</a>
                                   </div>
                                 </div>
                       
@@ -87,6 +87,8 @@
                     } else {  
                       echo "Erro  ".mysqli_errno($con);
                     }
+                } else {
+                  header ('Location: index.php');
                 }
 
               ?>

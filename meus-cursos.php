@@ -74,10 +74,10 @@
                                   </div>
                       
                                   <div class="col s12 m7 l6 action-buttons">
-                                    <a class="waves-effect waves-light btn" href="php/fazerAvaliacao.php?idCursoParam='.$row['id'].'&nomeCursoParam='.$row['nome'].'"><i class="material-icons left">question_answer</i>avaliação</a>
-                                    <a class="waves-effect waves-light btn" href="'.$row['video'].'" target="_blank"><i class="material-icons left">videocam</i>video</a>
-                                    <a class="waves-effect waves-light btn" href="'.$row['apostila'].'" download><i class="material-icons left">file_download</i>Apostila</a>
-                                    <a class="waves-effect waves-light btn red" href="php/abandonarCurso.php?idCursoParam='.$row['id'].'&nomeCursoParam='.$row['nome'].'"><i class="material-icons left">cancel</i>abandonar</a>
+                                    <a class="waves-effect waves-light btn" href="php/fazerAvaliacao.php?idCursoParam='.$row['id'].'&nomeCursoParam='.$row['nome'].'"><i class="fa fa-file left"></i>avaliação</a>
+                                    <a class="waves-effect waves-light btn" href="'.$row['video'].'" target="_blank"><i class="fa fa-video-camera left"></i>video</a>
+                                    <a class="waves-effect waves-light btn" href="'.$row['apostila'].'" download><i class="fa fa-file left"></i>Apostila</a>
+                                    <a class="waves-effect waves-light btn red" href="php/abandonarCurso.php?idCursoParam='.$row['id'].'&nomeCursoParam='.$row['nome'].'"><i class="fa fa-times left"></i>abandonar</a>
                                   </div>
                                 </div>
                       
@@ -92,6 +92,8 @@
                     } else {  
                       echo "Erro  ".mysqli_errno($con);
                     }
+                } else {
+                  header ('Location: index.php');
                 }
 
               ?>

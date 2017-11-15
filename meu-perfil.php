@@ -141,6 +141,8 @@
                       } else {  
                         echo "Erro  ".mysqli_errno($con);
                       }
+                  } else {
+                    header ('Location: index.php');
                   }
 
                 ?>
@@ -196,7 +198,7 @@
 
       <div class="fixed-action-btn horizontal">
         <a class="btn-floating btn-large red btn-toggle-perfil">
-          <i class="large material-icons">mode_edit</i>
+          <i class="large fa fa-pencil"></i>
         </a>
       </div>
 
@@ -353,11 +355,11 @@
 
         <div class="fixed-action-btn">
           <a class="btn-floating btn-large green">
-            <i class="large material-icons">mode_edit</i>
+            <i class="large fa fa-pencil"></i>
           </a>
           <ul>
             <li><a class="btn-floating green"><input type="submit" name="atualizarPerfil" style="background:#4CAF50;color:#fff;font-size:14px;" value="OK"></a></li>
-            <li><a class="btn-floating red btn-toggle-perfil"><i class="material-icons">cancel</i></a></li>
+            <li><a class="btn-floating red btn-toggle-perfil"><i class="fa fa-times"></i></a></li>
             
           </ul>
         </div>
@@ -446,7 +448,7 @@
      <div class="col s12 m12">
       <div class="card">
 
-          <span class="card-title avaliacao-title">MINHAS AVALIAÇÕES <i class="material-icons">question_answer</i></span>
+          <span class="card-title avaliacao-title">MINHAS AVALIAÇÕES</span>
           <br><br><br>
         
           <ul class="collection">
@@ -492,7 +494,7 @@
                           echo '<li class="collection-item avatar">
                                 <div class="row">
                                   <div class="col s12 m3 l6">
-                                    <i class="material-icons circle">folder</i>
+                                    <i class="fa fa-file circle"></i>
                                     <span class="title"> curso: '.$nomeCurso.'</span>
                                     <p>Data:'.$row['data'].' <br>
                                     Nota: '.$row['nota'].'
@@ -500,7 +502,7 @@
                                   </div>
                       
                                   <div class="col s12 m7 l6 action-buttons">
-                                    <a class="waves-effect waves-light btn" href="avaliacao-feita.php?idCursoParam='.$row['id_curso'].'&notaParam='.$row['nota'].'&idAlunoParam='.$row['id_aluno'].'&idProvaParam='.$row['id_prova'].' "><i class="material-icons left">question_answer</i>ver avaliação</a>
+                                    <a class="waves-effect waves-light btn" href="avaliacao-feita.php?idCursoParam='.$row['id_curso'].'&notaParam='.$row['nota'].'&idAlunoParam='.$row['id_aluno'].'&idProvaParam='.$row['id_prova'].' "><i class="fa fa-paper left"></i>ver avaliação</a>
                                   </div>
                                 </div>
                       
